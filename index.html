@@ -2,22 +2,31 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <title>The Jukebox</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="stylesheets/css/main.css" rel="stylesheet">
     
-	<link href="css/style.css" rel="stylesheet">
    
 </head>
 <body>
-    <div class="player">
-    </div>
 
-    <div id="controls">
-        <button id="play" type="button">Play</button>
-        <button id="pause" type="button">Pause</button>
-        <button id="stop" type="button">Stop</button>
-        <button id="last" type="button">Last</button>
-        <button id="next" type="button">Next</button>
-        <button id="shuffle" type="button">Suffle</button>
-    </div>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-7 col-xs-1 center-block">
+                </div>
+                <div class="col-md-8 col-sm-5 col-xs-11 center-block">
+                    <button id="play" class="btn btn-primary" type="button">Play</button>
+                    <button id="pause" class="btn btn-primary" type="button">Pause</button>
+                    <button id="stop" class="btn btn-primary" type="button">Stop</button>
+                    <button id="last" class="btn btn-primary" type="button">Last</button>
+                    <button id="next" class="btn btn-primary" type="button">Next</button>
+                    <button id="shuffle" class="btn btn-primary" type="button">Suffle</button>
+                </div>
+            </div>
+        </div>
+    </header>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="js/script.js"></script>  
