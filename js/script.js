@@ -71,19 +71,49 @@ $(document).ready(function(){
         url= "audio/Fire and the Flood.mp3"
         );
     var song2 = new Song(
-        title= "Mess is Mine", 
-        artist= "Vance Joy",
-        url= "audio/Mess is Mine.mp3"
+        title= "Breezeblocks", 
+        artist= "Alt-J",
+        url= "audio/Breezeblocks.mp3"
         );
     var song3 = new Song(
-        title= "Riptide", 
-        artist= "Vance Joy",
-        url= "audio/Riptide.mp3"
+        title= "Chandelier", 
+        artist= "Sia",
+        url= "audio/Chandelier.mp3"
         );
     var song4 = new Song(
         title= "Running", 
         artist= "Milky Chance",
         url= "audio/Running.mp3"
+        );
+    var song5 = new Song(
+        title= "Anna Sun", 
+        artist= "Walk the Moon",
+        url= "audio/Anna Sun.mp3"
+        );
+    var song6 = new Song(
+        title= "Closer", 
+        artist= "Kings of Leon",
+        url= "audio/Closer.mp3"
+        );
+    var song7 = new Song(
+        title= "Flaws", 
+        artist= "Bastille",
+        url= "audio/Flaws.mp3"
+        );
+    var song8 = new Song(
+        title= "Stubborn Love", 
+        artist= "Lumineers",
+        url= "audio/Stubborn Love.mp3"
+        );
+    var song9 = new Song(
+        title= "The Nights", 
+        artist= "Avicii",
+        url= "audio/The Nights.mp3"
+        );
+    var song10 = new Song(
+        title= "Unsteady", 
+        artist= "X Ambassadors",
+        url= "audio/Unsteady.mp3"
         );
 
 // Create new jukebox instance
@@ -96,6 +126,12 @@ $(document).ready(function(){
     jukebox.addSong(song2);
     jukebox.addSong(song3);
     jukebox.addSong(song4);
+    jukebox.addSong(song5);
+    jukebox.addSong(song6);
+    jukebox.addSong(song7);
+    jukebox.addSong(song8);
+    jukebox.addSong(song9);
+    jukebox.addSong(song10);
 
 // Set up Jukebox methods play, pause, stop, last song, next song
 // Set up event (click) to html elements to trigger methods
