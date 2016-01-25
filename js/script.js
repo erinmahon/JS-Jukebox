@@ -1,3 +1,6 @@
+
+$(document).ready(function(){
+
 // Create a Song object through a function (aka constructor) 
 // Defines what a Song is - as well as any instance of a Song
 // Each Song instance will have clearly defined attributes at creation
@@ -7,22 +10,37 @@ function Song(title, artist, url){
     this.artist = artist;
     this.url = url;
     this.audioElement = new Audio(src=url); 
-    this.printDetails = title + " by " + artist;
 };
 
 // Create a Jukebox object
 
 function Jukebox(){
 
-    this.songList = []; // array for storing song objects
-    this.currentSongIndex = 0; // integer for keeping track of where 
-                                                       // in the songList is the current song
+    this.playList = []; // array for storing song objects
+    this.currentSongIndex = 0; // integer for tracking where current song is in playlist
 
-// play the current song
-     this.play = function(){
+ // takes song object and adds to songList   
+    this.addSong = function(song){
+        this.playList.push(song);   
+        // $(this.playList).each(function() {
+            $(".songs").html("<li><audio>" + song.title + ", " + song.artist + "<source src= " + song.url + " type='mp3'></audio></li>")  
+            console.log(song.title + ", " + song.artist)
+    
+        // })
+            
+     }   
+
+// returns the song in the playList with index equal to currentSongIndex
+    this.currentSong = function(song){
+        return this.playList[this.currentSongIndex]; 
+    };
+
+ // play the current song
+     this.play = function(song){
         this.currentSong().audioElement.play(); 
+        // $('.playing').html(this.currentSong.title + ", " + this.currentSong.artist);
+        $(".playing").html(this.currentSong().title + ", " + this.currentSong().artist);
     }
-
 // pause the current song
       this.pause = function(){
         this.currentSong().audioElement.pause();    
@@ -33,18 +51,13 @@ function Jukebox(){
         this.currentSong().audioElement.load(); 
     }
 
-// returns the song in the playList with index equal to currentSongIndex
-    this.currentSong = function(){
-        return this.songList[this.currentSongIndex];
-    };
-
 // move the currentSongIndex forward (or reset to 0 if at last song)
     this.nextSong = function(){
         this.currentSongIndex += 1;
-        if (this.currentSongIndex >= this.songList.length){
+        if (this.currentSongIndex >= this.playList.length){
             this.currentSongIndex = 0;
         }
-    };
+    }
 
 // move the currentSongIndex backward (but keep at 0 if already at 0)   
     this.previousSong = function(){
@@ -54,66 +67,60 @@ function Jukebox(){
         };
     }
 
-// takes song object and adds to songList   
-    this.addSong = function(song){
-        this.songList.push(song);   
-    }
-
 };
 
-$(document).ready(function(){
 
 // Instantiating new instances of the Song Object
 
     var song1 = new Song(
         title= "Fire and the Flood", 
         artist= "Vance Joy",
-        url= "audio/Fire and the Flood.mp3"
+        url= "Fire and the Flood.mp3"
         );
     var song2 = new Song(
         title= "Breezeblocks", 
         artist= "Alt-J",
-        url= "audio/Breezeblocks.mp3"
+        url= "Breezeblocks.mp3"
         );
     var song3 = new Song(
         title= "Chandelier", 
         artist= "Sia",
-        url= "audio/Chandelier.mp3"
+        url= "Chandelier.mp3"
         );
     var song4 = new Song(
         title= "Running", 
         artist= "Milky Chance",
-        url= "audio/Running.mp3"
+        url= "Running.mp3"
         );
     var song5 = new Song(
         title= "Anna Sun", 
         artist= "Walk the Moon",
-        url= "audio/Anna Sun.mp3"
+        url= "Anna Sun.mp3"
         );
     var song6 = new Song(
         title= "Closer", 
         artist= "Kings of Leon",
-        url= "audio/Closer.mp3"
+        url= "Closer.mp3"
         );
     var song7 = new Song(
         title= "Flaws", 
         artist= "Bastille",
-        url= "audio/Flaws.mp3"
+        url= "Flaws.mp3"
         );
     var song8 = new Song(
         title= "Stubborn Love", 
         artist= "Lumineers",
-        url= "audio/Stubborn Love.mp3"
+        url= "Stubborn Love.mp3"
         );
     var song9 = new Song(
         title= "The Nights", 
         artist= "Avicii",
-        url= "audio/The Nights.mp3"
+        url= "The Nights.mp3"
         );
     var song10 = new Song(
         title= "Unsteady", 
         artist= "X Ambassadors",
-        url= "audio/Unsteady.mp3"
+        url= "Unsteady.mp3"
         );
 
 // Create new jukebox instance
@@ -133,12 +140,14 @@ $(document).ready(function(){
     jukebox.addSong(song9);
     jukebox.addSong(song10);
 
+
 // Set up Jukebox methods play, pause, stop, last song, next song
 // Set up event (click) to html elements to trigger methods
 
-    $('#play').click(function () {
-        jukebox.play()
-    })
+    $("#play").on("click", function(){
+        jukebox.play();
+    });
+
     $('#pause').click(function () {
         jukebox.pause()
     })
@@ -155,6 +164,12 @@ $(document).ready(function(){
         jukebox.nextSong()
         jukebox.play()
     })
+
+    //  $("#play_all").on("click", function(){
+    //     jukebox.playAll();
+    // });
+
+
     // $('#shuffle').click(function () {
     //     jukebox.stop()
     //     jukebox.currentSong = (Math.random()*jukebox.songList.length);
