@@ -36,7 +36,7 @@ function Jukebox(){
  // play the current song
      this.play = function(song){
         this.currentSong().audioElement.play(); 
-        $(".playing").html(this.currentSong().title + ", " + this.currentSong().artist);
+        $(".playing").html("'" + this.currentSong().title + "'" + " - " + this.currentSong().artist);
     }
 // pause the current song
       this.pause = function(){
