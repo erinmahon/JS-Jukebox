@@ -19,15 +19,13 @@ function Jukebox(){
     this.playList = []; // array for storing song objects
     this.currentSongIndex = 0; // integer for tracking where current song is in playlist
 
- // takes song object and adds to songList   
+// takes song object and adds to songList   
     this.addSong = function(song){
         this.playList.push(song);   
-        // $(this.playList).each(function() {
+        $(this.playList).each(function() {
             $(".songs").html("<li><audio>" + song.title + ", " + song.artist + "<source src= " + song.url + " type='mp3'></audio></li>")  
             console.log(song.title + ", " + song.artist)
-    
-        // })
-            
+        })  
      }   
 
 // returns the song in the playList with index equal to currentSongIndex
@@ -38,7 +36,6 @@ function Jukebox(){
  // play the current song
      this.play = function(song){
         this.currentSong().audioElement.play(); 
-        // $('.playing').html(this.currentSong.title + ", " + this.currentSong.artist);
         $(".playing").html(this.currentSong().title + ", " + this.currentSong().artist);
     }
 // pause the current song
