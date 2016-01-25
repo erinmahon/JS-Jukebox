@@ -165,11 +165,6 @@ function Jukebox(){
         jukebox.play()
     })
 
-    //  $("#play_all").on("click", function(){
-    //     jukebox.playAll();
-    // });
-
-
     // $('#shuffle').click(function () {
     //     jukebox.stop()
     //     jukebox.currentSong = (Math.random()*jukebox.songList.length);
