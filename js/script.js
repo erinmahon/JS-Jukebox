@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
 
 // Create a Song object through a function (aka constructor) 
